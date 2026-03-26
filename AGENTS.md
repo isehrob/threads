@@ -48,7 +48,7 @@ The user is not just a requester — they're a capability. Humans are better at 
 
 ## Skills
 
-Skills live in `~/agents/.agents/skills/`. Each skill starts by reading this file for system context.
+Skills live in `~/agents/.agents/skills/<name>/SKILL.md`. Each skill starts by reading this file for system context. Symlinked into `.claude/skills/` and `.codex/skills/` for agent discovery.
 
 - `/create-task` — start new work
 - `/resume-task` — continue previous work (user drives)

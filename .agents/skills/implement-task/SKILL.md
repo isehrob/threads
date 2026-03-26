@@ -4,7 +4,7 @@ description: Work autonomously on a task — agent drives, user reviews
 
 # /implement-task
 
-First, read `~/agents/agent.md` for system context.
+First, read `~/agents/AGENTS.md` for system context.
 
 ## What You Do
 

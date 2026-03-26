@@ -23,38 +23,40 @@ Every task records `work_dir` in its `created` entry. Skills use this to know wh
 
 **Skills must work from anywhere.** The agent might be `cd`'d into brain home, the work repo, or the task folder. Doesn't matter. Skills always read `work_dir` from the task history to know where to do actual work, and always use brain home's absolute path for history/knowledge/skills operations.
 
-**Skills link back to agent.md.** Every skill tells the agent: "First, read `~/agents/agent.md`." That's how an agent invoked from any directory learns what this system is, where things live, and how to behave. `agent.md` is the shared context that makes skills make sense. Skills also reference brain home by absolute path for all task/knowledge/history operations.
+**Skills link back to AGENTS.md.** Every skill tells the agent: "First, read `~/agents/AGENTS.md`." That's how an agent invoked from any directory learns what this system is, where things live, and how to behave. `AGENTS.md` is the shared context that makes skills make sense. Skills also reference brain home by absolute path for all task/knowledge/history operations.
 
 ## Folder Structure
 
 ```
-~/agents/                          # brain home (fixed, known path)
+~/agents/                              # brain home (fixed, known path)
 ├── .agents/
-│   └── skills/
-│       ├── create-task.md
-│       ├── resume-task.md
-│       ├── implement-task.md
-│       └── finalize-task.md
+│   └── skills/                        # canonical skill location
+│       ├── create-task/SKILL.md
+│       ├── resume-task/SKILL.md
+│       ├── implement-task/SKILL.md
+│       └── finalize-task/SKILL.md
 ├── .claude/
-│   ├── skills/                    # symlinks to .agents/skills/*
+│   ├── skills/                        # symlinks → .agents/skills/*
 │   └── settings.json
+├── .codex/
+│   └── skills/                        # symlinks → .agents/skills/*
 ├── tasks/
 │   └── <task-slug>/
 │       ├── history.jsonl
 │       └── (supporting files: notes, scripts, diagrams, etc.)
 ├── knowledge/
-├── agent.md                       # system docs, principles, conventions
-└── CLAUDE.md                      # Claude-specific adapter → points to agent.md
-
+├── AGENTS.md                          # central system doc (open standard)
+└── CLAUDE.md                          # Claude-specific adapter → points to AGENTS.md
 ```
 
 ### Naming Convention
 
 The system is agent-agnostic. Core files use neutral names:
 
-- `agent.md` — the central system document. How this works, what the conventions are, what agents should know. All skills point here.
-- Agent skills in `.agents/skills/` — the canonical location.
-- `CLAUDE.md` — a Claude Code-specific adapter that points to `agent.md`. Other agents would have their own adapter (e.g., `codex.md`, `.cursorrules`, whatever).
+- `AGENTS.md` — the central system document (open standard, supported by Claude Code, Codex, Copilot, Cursor, etc.). All skills point here.
+- `.agents/skills/<name>/SKILL.md` — canonical skill location. Both Claude Code and Codex discover skills here natively.
+- `.claude/skills/`, `.codex/skills/` — agent-specific symlinks to `.agents/skills/`. Each agent discovers its own directory.
+- `CLAUDE.md` — Claude Code-specific adapter pointing to `AGENTS.md`.
 
 ## Principles
 
@@ -118,7 +120,7 @@ Every skill says "append after each meaningful step." The test: **"If I stopped 
 Agent skills live in `.agents/skills/` (brain home). For Claude Code, they're symlinked into `.claude/skills/`. They run in the current conversation context and may spawn subagents internally.
 
 **Every skill must:**
-- Start with: "Read `~/agents/agent.md` for system context." This is how any agent, invoked from anywhere, learns what this system is and how to behave.
+- Start with: "Read `~/agents/AGENTS.md` for system context." This is how any agent, invoked from anywhere, learns what this system is and how to behave.
 - Reference brain home (`~/agents`) by absolute path for all task/history/knowledge operations.
 - Encode the "human as capability" principle — ask when asking is faster than guessing.
 
@@ -181,7 +183,7 @@ This is the **self-improvement phase**. It's interactive — the agent proposes,
    - **Compress:** How the history will be distilled. What stays, what goes, what gets merged.
    - **Knowledge:** What new knowledge was learned. Draft each knowledge file.
    - **Skill updates:** Any skill changes the task revealed as needed.
-   - **agent.md updates:** Any system-level changes.
+   - **AGENTS.md updates:** Any system-level changes.
    - **Adapter updates:** Any agent-specific changes (CLAUDE.md, etc.).
 3. **Iterate with the user.** The user reviews, adjusts, pushes back. This may take multiple rounds. Context may get compacted — that's fine, the plan file persists. User can re-invoke the skill and point to the plan.
 4. **Execute** only after the user approves. Apply all changes from the plan.
@@ -191,7 +193,7 @@ This is the **self-improvement phase**. It's interactive — the agent proposes,
 
 - **Knowledge** → `~/agents/knowledge/`. The test: **"Could an LLM or I have known this without doing the work?"** If yes, don't save it. If no, that's knowledge. Genuinely new ground truth — things outside training data, things you can't one-shot, things learned through doing. Could be about anything: a real-world process, a software gotcha, a life hack, a domain insight. Dual purpose: useful for future agents AND for the human.
 - **Skill improvements** — if a skill's instructions led to friction, or a better workflow emerged.
-- **agent.md improvements** — if the task revealed something about how the system should operate.
+- **AGENTS.md improvements** — if the task revealed something about how the system should operate.
 - **Adapter improvements** (CLAUDE.md, etc.) — if something agent-specific was learned.
 
 The system gets smarter after every completed task. Task N+1 starts from a better baseline than task N.
@@ -221,7 +223,7 @@ Source: tasks/auth-flow (2026-03-24)
 - If a knowledge file on the same topic exists, update it rather than creating a duplicate.
 - The bar: genuinely new information, not textbook stuff.
 
-## agent.md
+## AGENTS.md
 
 The central system document. Tells any agent:
 - What this system is and how it works.
@@ -234,7 +236,7 @@ The central system document. Tells any agent:
 ## CLAUDE.md (and other agent adapters)
 
 Thin, agent-specific files that live in brain home. For Claude Code:
-- Points to `agent.md` as the source of truth.
+- Points to `AGENTS.md` as the source of truth.
 - Any Claude Code-specific config or conventions.
 
 ## Open Questions (for later)

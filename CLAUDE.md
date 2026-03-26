@@ -1,6 +1,6 @@
 # Claude Code Adapter
 
-Read `~/agents/agent.md` for how this system works.
+Read `~/agents/AGENTS.md` for how this system works.
 
 This repo is the brain home for a persistent task/knowledge system. Skills in `.claude/skills/` are symlinked from `.agents/skills/`.
 

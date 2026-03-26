@@ -4,7 +4,7 @@ description: Compress task history, extract knowledge, and improve the system
 
 # /finalize-task
 
-First, read `~/agents/agent.md` for system context.
+First, read `~/agents/AGENTS.md` for system context.
 
 ## What You Do
 

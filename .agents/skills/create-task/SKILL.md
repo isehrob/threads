@@ -4,7 +4,7 @@ description: Start tracking new work as a task with persistent history
 
 # /create-task
 
-First, read `~/agents/agent.md` for system context.
+First, read `~/agents/AGENTS.md` for system context.
 
 ## What You Do
 

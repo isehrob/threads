@@ -4,7 +4,7 @@ description: Resume a previously started task and continue working on it
 
 # /resume-task
 
-First, read `~/agents/agent.md` for system context.
+First, read `~/agents/AGENTS.md` for system context.
 
 ## What You Do
 
