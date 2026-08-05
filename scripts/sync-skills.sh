@@ -2,7 +2,7 @@
 #
 # Sync skill symlinks from the canonical source to global agent directories.
 #
-# Canonical: ~/agents/.agents/skills/<name>/SKILL.md
+# Canonical: ~/threads/.agents/skills/<name>/SKILL.md
 # Targets:   ~/.claude/skills/<name>
 #            ~/.codex/skills/<name>
 #
@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-CANONICAL="$HOME/agents/.agents/skills"
+CANONICAL="$HOME/threads/.agents/skills"
 
 TARGETS=(
   "$HOME/.claude/skills"
