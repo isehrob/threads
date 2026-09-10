@@ -9,6 +9,7 @@ These are strict constraints, not optional preferences. Apply each section to th
 
 ## Coding
 
+- Never create a Git worktree. Always work in the current checkout on the current branch. Do not create or switch branches. This rule supersedes earlier instructions to use worktrees or separate feature branches.
 - Always write the minimum, most straightforward, simplest code needed for the requested work.
 - Never write defensive code or code for hypothetical scenarios. Do not add speculative checks, fallbacks, or future-proofing. If you strongly believe additional protection is needed, explain the concern after completing the requested work; do not implement it on your own.
 - Never handroll functionality. Before implementing anything, check the codebase's conventions, existing libraries, standard library, and built-in framework features. Reuse those, or propose an established, publicly supported, credible library. If you cannot find a suitable option, ask the user or propose approaches. Do not silently generate a custom implementation.
