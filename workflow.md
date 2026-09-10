@@ -37,5 +37,6 @@ History is append-only; never rewrite or delete existing entries.
         ├── list-threads/
         ├── set-thread/
         ├── thread-handoff/
+        ├── thread-rules/
         └── close-thread/
 ```
