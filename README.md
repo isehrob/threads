@@ -26,7 +26,7 @@ Install the skills for Claude and Codex:
 npx skills add isehrob/threads -g -a claude-code codex --skill '*'
 ```
 
-Then ask your agent to run `setup-threads`. It explains the system, asks where to create or find `topics/`, and writes that location into the installed skills. It handles shared symlink targets and separate copies, and asks for installation paths it cannot find. Existing topics and history are preserved.
+Then ask your agent to run `setup-threads` and provide the folder where you want to store topics or where they already exist. Setup configures the installed skills to use that location and preserves existing topics and history.
 
 Update installed skills with:
 
