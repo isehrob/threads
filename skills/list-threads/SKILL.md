@@ -5,7 +5,7 @@ description: List resumable threads within one topic or across all topics.
 
 # List Threads
 
-Read `~/threads/workflow.md` if you need system context.
+Read `~/.local/share/threads/workflow.md` if you need system context.
 
 Read the requested topic's threads; scan all topics only when no topic is given.
 

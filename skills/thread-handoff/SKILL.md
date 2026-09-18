@@ -5,7 +5,7 @@ description: Preserve the context needed to continue an active thread later.
 
 # Thread Handoff
 
-Read `~/threads/workflow.md`; follow its history schema exactly.
+Read `~/.local/share/threads/workflow.md`; follow its history schema exactly.
 
 Use the topic and thread path established in context; if absent, ask instead of searching.
 

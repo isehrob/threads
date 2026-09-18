@@ -5,9 +5,9 @@ description: Create a resumable work thread inside an existing topic.
 
 # Create Thread
 
-Read `~/threads/workflow.md`; follow its history schema exactly.
+Read `~/.local/share/threads/workflow.md`; follow its history schema exactly.
 
-Use `~/threads/topics/<topic>/threads` regardless of cwd.
+Use `~/.local/share/threads/topics/<topic>/threads` regardless of cwd.
 
 1. Require an existing topic; ask which one if unclear.
 2. Derive a short kebab-case thread slug from the objective.

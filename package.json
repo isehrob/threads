@@ -1,0 +1,29 @@
+{
+  "name": "@isehrob/threads",
+  "version": "0.1.0",
+  "description": "A simple, local memory system for managing any digital work with agents: coding, research, paperwork, planning, or anything else.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isehrob/threads.git"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "bin": {
+    "threads": "scripts/install.js"
+  },
+  "files": [
+    "scripts/install.js",
+    "scripts/sync_skills.js",
+    "skills/",
+    "workflow.md"
+  ],
+  "engines": {
+    "node": ">=24.2.0"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

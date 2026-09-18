@@ -14,19 +14,23 @@ Topics group related work; threads keep individual pieces of work resumable. The
 
 ## Storage and privacy
 
-Topics and threads live outside this Git repository, linked through the ignored `topics/` symlink. Your work stays out of Git.
+Topics and threads live in the location you choose, linked from `~/.local/share/threads/topics`. Your work stays separate from the installed package and out of Git.
 
 Put them in an iCloud Drive, Google Drive, or another synced folder for copies across devices. Access and recovery depend on your storage and account settings.
 
 ## Installation
 
-With this repository at `~/threads`, run:
+Requires Node.js 24.2 or newer. Once published, install or update with:
 
 ```sh
-python3 scripts/install.py
+npx @isehrob/threads@latest
 ```
 
-Enter the full path of the parent folder. The installer creates `topics/` inside it, links it as `topics/` in this repository, and syncs skills into `~/.codex/skills` and `~/.claude/skills`.
+On first install, enter the absolute path of the parent folder. The installer creates `topics/` inside it, installs skills and the workflow under `~/.local/share/threads`, and links skills into `~/.codex/skills` and `~/.claude/skills`.
+
+Run the same command to update skills and the workflow. Your topics location and contents stay unchanged.
+
+From a source checkout, run `node scripts/install.js`.
 
 ## To-do
 

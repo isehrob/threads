@@ -5,9 +5,9 @@ description: List topics and summarize their thread activity.
 
 # List Topics
 
-Read `~/threads/workflow.md` if you need system context.
+Read `~/.local/share/threads/workflow.md` if you need system context.
 
-Read topic directories under `~/threads/topics` without changing them.
+Read topic directories under `~/.local/share/threads/topics` without changing them.
 
 1. Show each topic name.
 2. Count a thread as closed only when its final content starts `Thread closed.`.
