@@ -5,9 +5,13 @@ description: List resumable threads within one topic or across all topics.
 
 # List Threads
 
-Read `~/.local/share/threads/workflow.md` if you need system context.
+Topics directory: `NOT_CONFIGURED`
 
-Read the requested topic's threads; scan all topics only when no topic is given.
+Use this absolute path as `<topics>`, independent of cwd. If it is `NOT_CONFIGURED`, ask the user to run `setup-threads` before proceeding.
+
+Read threads under `<topics>/<topic>/threads`; scan all topics only when no topic is given.
+
+Each thread is a resumable piece of work with a `history.jsonl` file. Entries are JSON objects with `timestamp`, `agent`, and `content`; the last line records the latest activity.
 
 1. Use the requested topic; otherwise group threads by topic.
 2. Treat a thread as closed only when its final content starts `Thread closed.`.

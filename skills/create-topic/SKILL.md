@@ -5,11 +5,13 @@ description: Create a topic for organizing related knowledge and work threads.
 
 # Create Topic
 
-Read `~/.local/share/threads/workflow.md` if you need system context.
+A topic is an area of work that groups related threads and reusable knowledge learned from them.
 
-Use `~/.local/share/threads/topics` as the fixed store, independent of cwd.
+Topics directory: `NOT_CONFIGURED`
+
+Use this absolute path as `<topics>`, independent of cwd. If it is `NOT_CONFIGURED`, ask the user to run `setup-threads` before proceeding.
 
 1. Use the provided name or derive a short kebab-case slug.
-2. Create `~/.local/share/threads/topics/<topic>/knowledge/` and `threads/`.
+2. Create `<topics>/<topic>/knowledge/` and `<topics>/<topic>/threads/`.
 3. Do not overwrite an existing topic; report it instead.
 4. Confirm the created topic path.

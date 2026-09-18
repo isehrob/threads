@@ -10,27 +10,31 @@ Threads also give agents a way to resume, so you don't have to keep explaining t
 
 The system should be simple enough to understand and start using quickly. The workflow is intentionally slow enough to leave room for human thinking. Automation can handle bookkeeping, while you decide what to work on and when to move on.
 
-Topics group related work; threads keep individual pieces of work resumable. The files are agent-agnostic, with skill integrations currently available for Codex and Claude. See [workflow.md](workflow.md) for the layout and workflow.
+Topics group related work; threads keep individual pieces of work resumable. The files are agent-agnostic, with skill integrations currently available for Codex and Claude.
 
 ## Storage and privacy
 
-Topics and threads live in the location you choose, linked from `~/.local/share/threads/topics`. Your work stays separate from the installed package and out of Git.
+Topics and threads live in the location you choose. Choose a folder outside your Git repositories to keep your work separate from the installed skills and out of Git.
 
 Put them in an iCloud Drive, Google Drive, or another synced folder for copies across devices. Access and recovery depend on your storage and account settings.
 
 ## Installation
 
-Requires Node.js 24.2 or newer. Once published, install or update with:
+Install the skills for Claude and Codex:
 
 ```sh
-npx @isehrob/threads@latest
+npx skills add isehrob/threads -g -a claude-code codex --skill '*'
 ```
 
-On first install, enter the absolute path of the parent folder. The installer creates `topics/` inside it, installs skills and the workflow under `~/.local/share/threads`, and links skills into `~/.codex/skills` and `~/.claude/skills`.
+Then ask your agent to run `setup-threads`. It explains the system, asks where to create or find `topics/`, and writes that location into the installed skills. It handles shared symlink targets and separate copies, and asks for installation paths it cannot find. Existing topics and history are preserved.
 
-Run the same command to update skills and the workflow. Your topics location and contents stay unchanged.
+Update installed skills with:
 
-From a source checkout, run `node scripts/install.js`.
+```sh
+npx skills update -g
+```
+
+Rerun the installation command to add newly published skills. Run `setup-threads` after updates or installations to configure the paths again.
 
 ## To-do
 
